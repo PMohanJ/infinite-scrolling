@@ -1,0 +1,44 @@
+.container-home {
+  margin: 0;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.logout {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.list-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-item {
+  display: flex;
+  margin-bottom: 8px;
+  border: 1px solid white;
+  border-radius: 0 15px 15px 15px;
+  width: 500px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 520px) {
+  .list-item {
+    width: 300px;
+  }
+}
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+.text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: auto;
+}
