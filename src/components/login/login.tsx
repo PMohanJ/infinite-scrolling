@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { FormControl, FormLabel, VStack,Input, InputGroup, InputRightElement, Button } from '@chakra-ui/react'
-import { LoginHandler } from './loginHandler'
+import { LoginUser } from './loginHandler'
 import { useToast } from '@chakra-ui/react'
+import { useNavigate } from "react-router-dom"
 import "./login.css"
 
 
@@ -10,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState<string>("");
   const [show, setShow] =useState<boolean>(false);
   const toast = useToast();
+  const navigate = useNavigate();
 
   const handlePassVisibility = ():void => {
     setShow(!show);
@@ -26,7 +28,19 @@ const Login = () => {
       });
       return; 
     }
-    LoginHandler(username, password);
+    
+    const success: boolean = LoginUser(username, password);
+    if (success) {
+      navigate("/home");
+    } else {
+        toast({
+          title: "Error while logging in",
+          status: "error",
+          duration: 4,
+          isClosable: true,
+          position: "bottom"
+        });
+    }
   }
 
   const handleOnKeyDown = (event:React.KeyboardEvent<HTMLInputElement>):void => {

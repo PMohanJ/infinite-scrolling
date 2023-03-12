@@ -1,3 +1,5 @@
+
+
 type userInfo = {
     username: string,
     password: string,
@@ -12,8 +14,7 @@ const loginPromise = (user: userInfo): Promise<userInfo> => {
     })
 }
 
-export const LoginHandler = async(username: string, password: string): Promise<void>=> {
-
+const loginHandler = async(username: string, password: string): Promise<void>=> {
     try{
       let userLoginCred: userInfo = {
         username: username,
@@ -26,7 +27,16 @@ export const LoginHandler = async(username: string, password: string): Promise<v
       console.log("From localstorage, ", localStorage.getItem("userLoginCred"));
 
     } catch (error) {
-        console.log("Error occured");
+        throw new Error("Can't login")
     }
 }
 
+export const LoginUser = (username: string, password: string): boolean => {
+    try{
+        loginHandler(username, password)
+        return true
+    } catch (error) {
+        console.log("Error while login")
+        return false
+    }
+}
