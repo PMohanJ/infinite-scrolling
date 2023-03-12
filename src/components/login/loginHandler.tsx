@@ -22,10 +22,7 @@ const loginHandler = async(username: string, password: string): Promise<void>=> 
       }
        
       const data: userInfo = await loginPromise(userLoginCred);
-      console.log(data);
       localStorage.setItem("userLoginCred", JSON.stringify(data));
-      console.log("From localstorage, ", localStorage.getItem("userLoginCred"));
-
     } catch (error) {
         throw new Error("Can't login")
     }
