@@ -8,11 +8,11 @@ import "./login.css"
 const Login = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [show, setShow] =useState<boolean>();
+  const [show, setShow] =useState<boolean>(false);
   const toast = useToast();
 
   const handlePassVisibility = ():void => {
-    setShow(false);
+    setShow(!show);
   }
 
   const handleLogin = ():void => {
