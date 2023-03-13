@@ -59,6 +59,7 @@ const Login = () => {
             type="email"
             placeholder="Enter your email address"
             onChange={(e) => setUsername(e.target.value)}
+            data-testid="username-input"
           />
         </FormControl>
 
@@ -71,6 +72,7 @@ const Login = () => {
                 placeholder="Enter password"
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={handleOnKeyDown}
+                data-testid="password-input"
               />
               <InputRightElement width="4.5rem">
                 <Button h="1.75rem" size="sm" onClick={handlePassVisibility} className="visibility">
