@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Box, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import "./home.css"
@@ -57,18 +57,14 @@ const Home = () => {
 
   useEffect(() => {
     getUserData();
-    console.log("Called once")
   }, [])
 
   useEffect(()=> {
     window.addEventListener("scroll", handleScroll)
-
-    //return () => window.removeEventListener("scroll", handleScroll)
   }, [])
   
   return (
     <div data-testid="home-div" className="container-home">
-      
       <Box className="logout">
         <Button colorScheme="blue" onClick={handleLogout}>
           Logout
@@ -79,9 +75,7 @@ const Home = () => {
          {users?.length > 0 ? users.map((obj: UserObj) => (
           <UserProfile key={obj.id} name={obj.name} email={obj.email} pic={obj.pic} />
         )): ""}   
-           
       </Box>  
-     
      {loading && <SkeletonLoader/>}
     </div>
   )

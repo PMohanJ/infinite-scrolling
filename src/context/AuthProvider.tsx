@@ -13,14 +13,12 @@ const AuthProvider = ({children}: LoginProviderProps) => {
 
     useEffect(() => {
         const storage: string | null =  localStorage.getItem("userLoginCred")
-       console.log("Localstorage context,", storage);
         const userDetails: string = JSON.parse(storage ?? "{}");
         setUser(userDetails);
 
         if (userDetails === "" || userDetails === null) {
             navigate("/");
         }
-        
     }, []);
 
     return(
