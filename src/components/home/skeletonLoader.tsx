@@ -3,10 +3,10 @@ import "./home.css"
 
 const SkeletonLoader = () => {
   return (
-    <Stack className="list-center">
-      <Skeleton height='20px' />
-      <Skeleton height='20px' />
-      <Skeleton height='20px' />
+    <Stack className='skeleton-width '>
+      <Skeleton height='50px' />
+      <Skeleton height='50px' />
+      <Skeleton height='50px' />
     </Stack>
   )
 }

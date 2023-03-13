@@ -42,3 +42,16 @@
   text-overflow: ellipsis;
   width: auto;
 }
+
+.skeleton-width {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@media screen and (max-width: 520px) {
+  .skeleton-width{
+    width: 300px;
+  }
+}

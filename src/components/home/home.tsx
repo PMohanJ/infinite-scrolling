@@ -57,6 +57,7 @@ const Home = () => {
 
   useEffect(() => {
     getUserData();
+    console.log("Called once")
   }, [])
 
   useEffect(()=> {
@@ -67,6 +68,7 @@ const Home = () => {
   
   return (
     <div data-testid="home-div" className="container-home">
+      
       <Box className="logout">
         <Button colorScheme="blue" onClick={handleLogout}>
           Logout
@@ -74,11 +76,13 @@ const Home = () => {
       </Box>
 
       <Box className="list-center">
-        {users?.length > 0 ? users.map((obj: UserObj) => (
+         {users?.length > 0 ? users.map((obj: UserObj) => (
           <UserProfile key={obj.id} name={obj.name} email={obj.email} pic={obj.pic} />
-        )): <SkeletonLoader/>}        
+        )): ""}   
+           
       </Box>  
-     {loading?? <SkeletonLoader/>}
+     
+     {loading && <SkeletonLoader/>}
     </div>
   )
 }
